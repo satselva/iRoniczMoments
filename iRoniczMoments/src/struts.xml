@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+ 
+<struts>
+  <bean name="userDAO" type="com.ironicz.moments.persistence.UserDAO" class="com.ironicz.moments.appengine.datastore.UserDataStore" scope="singleton" optional="false"/>
+  
+  <package name="iRoniczUser" namespace="/user" extends="struts-default">
+    <action name="add" class="com.ironicz.moments.actions.UserActions" method="execute">
+        <result name="input">/add_user.jsp</result>
+    </action>
+    
+    <action name="save" class="com.ironicz.moments.actions.UserActions" method="save">
+        <result name="success">/success_add_user.jsp</result>
+    </action>
+    
+   </package>
+</struts>
